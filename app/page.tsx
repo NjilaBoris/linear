@@ -1,3 +1,9 @@
+import Navbar from "./sections/Navbar";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
