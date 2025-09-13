@@ -2,7 +2,7 @@ import Button from "@/components/Button";
 import Pointer from "@/components/Pointer";
 import designExample1Image from "@/public/images/design-example-1.png";
 import designExample2Image from "@/public/images/design-example-2.png";
-import { div } from "motion/react-client";
+
 import Image from "next/image";
 
 export default function Hero() {
@@ -41,7 +41,7 @@ export default function Hero() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="bg-transparent px-4 flex-1"
+            className="bg-transparent px-4 md:flex-1 w-full"
           />
           <Button
             type="submit"
