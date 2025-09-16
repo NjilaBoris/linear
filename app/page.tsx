@@ -6,6 +6,7 @@ import Introduction from "./sections/Introduction";
 import LogoTicker from "./sections/LogoTicker";
 import Navbar from "./sections/Navbar";
 import Faqs from "./sections/Faqs";
+import CallToAction from "./sections/CallToAction";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Features />
         <Integrations />
         <Faqs />
+        <CallToAction />
       </div>
     </ReactLenis>
   );
