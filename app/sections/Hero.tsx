@@ -7,6 +7,7 @@ import cursorYouImage from "@/public/images/cursor-you.svg";
 import { motion } from "motion/react";
 
 import Image from "next/image";
+import TextReveal from "@/components/TextReveal";
 
 export default function Hero() {
   // const [leftDesignscope, leftDesignanimate] = useAnimate();
@@ -87,14 +88,18 @@ export default function Hero() {
             ✨ $7.5M seed round raised
           </div>
         </div>
-        <h1 className="text-6xl lg:text-[4.6rem] lg:max-w-2xl lg:mx-auto md:text-7xl font-medium text-center mt-6">
-          Impactful design, created effortlessly
-        </h1>
-        <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">
-          Design tools shouldn&apos;t slow you down. Layers combines powerful
-          features with an inuitive interface that keeps you in your creative
-          flow.
-        </p>
+        <TextReveal>
+          <h1 className="text-6xl lg:text-[4.6rem] lg:max-w-2xl lg:mx-auto md:text-7xl font-medium text-center mt-6">
+            Impactful design, created effortlessly
+          </h1>
+        </TextReveal>
+        <TextReveal delay={0.6}>
+          <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">
+            Design tools shouldn&apos;t slow you down. Layers combines powerful
+            features with an inuitive interface that keeps you in your creative
+            flow.
+          </p>
+        </TextReveal>
         <form className="flex border border-white/15 rounded-full p-2 mt-8 max-w-lg mx-auto">
           <input
             type="email"
