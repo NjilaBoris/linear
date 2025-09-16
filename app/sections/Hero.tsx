@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="py-10 lg:py-5 overflow-x-clip">
+    <section className="py-24 overflow-x-clip">
       <div className="container relative">
         <div className="absolute -left-30 top-14 hidden lg:block">
           <Image src={designExample1Image} alt="design Example1" height={400} />
@@ -29,7 +29,7 @@ export default function Hero() {
             ✨ $7.5M seed round raised
           </div>
         </div>
-        <h1 className="text-6xl lg:text-[4.8rem] md:text-7xl font-medium text-center mt-6">
+        <h1 className="text-6xl lg:text-[4.6rem] lg:max-w-2xl lg:mx-auto md:text-7xl font-medium text-center mt-6">
           Impactful design, created effortlessly
         </h1>
         <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">
