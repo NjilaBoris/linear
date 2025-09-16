@@ -23,7 +23,7 @@ const Pointer = (props: { name: string; color?: "red" | "blue" }) => {
       <div className="absolute top-full left-full">
         <div
           className={clsx(
-            "inline-flex rounded-full px-2 rounded-tl-none font-bold text-sm bg-blue-500",
+            "inline-flex rounded-full px-2 will-change-transform rounded-tl-none font-bold text-sm bg-blue-500",
             color === "red" && "bg-red-500"
           )}
         >

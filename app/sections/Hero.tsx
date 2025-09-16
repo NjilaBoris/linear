@@ -3,14 +3,14 @@ import Button from "@/components/Button";
 import Pointer from "@/components/Pointer";
 import designExample1Image from "@/public/images/design-example-1.png";
 import designExample2Image from "@/public/images/design-example-2.png";
-import { motion, useAnimate } from "motion/react";
+import cursorYouImage from "@/public/images/cursor-you.svg";
+import { motion } from "motion/react";
 
 import Image from "next/image";
-import { useEffect } from "react";
 
 export default function Hero() {
-  const [leftDesignscope, leftDesignanimate] = useAnimate();
-  const [leftPointerScope, leftPointerAnimate] = useAnimate();
+  // const [leftDesignscope, leftDesignanimate] = useAnimate();
+  // const [leftPointerScope, leftPointerAnimate] = useAnimate();
 
   // useEffect(() => {
   //   leftDesignanimate([
@@ -18,33 +18,46 @@ export default function Hero() {
   //   ]);
   // }, [leftDesignscope, leftDesignanimate]);
   return (
-    <section className="py-24 overflow-x-clip">
+    <section
+      className="py-24 overflow-x-clip"
+      style={{ cursor: `url(${cursorYouImage.src}) 16 16, auto` }}
+    >
       <div className="container relative">
         <motion.div
-          ref={leftDesignscope}
           initial={{ opacity: 0, y: 100, x: -100 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 0.7 }}
+          drag
           className="absolute -left-17 top-14 hidden lg:block"
         >
-          <Image src={designExample1Image} alt="design Example1" height={400} />
+          <Image
+            draggable="false"
+            src={designExample1Image}
+            alt="design Example1"
+            height={400}
+          />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7 }}
+          drag
+          initial={{ opacity: 0, y: -100, x: 100 }}
+          animate={{ opacity: 1, y: 0, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
           className="absolute -right-40 top-2 hidden lg:block"
         >
-          <Image src={designExample2Image} alt="design Example2" height={400} />
+          <Image
+            draggable="false"
+            src={designExample2Image}
+            alt="design Example2"
+            height={400}
+          />
         </motion.div>
         <motion.div
-          ref={leftPointerScope}
           animate={{
             x: ["0%", "-200%", "400%", "600%", "0%"],
             y: ["0%", "-800%", "-400%", "-300%", "0%"],
           }}
           transition={{
-            duration: 8,
+            duration: 12,
             ease: "easeInOut",
             repeat: Infinity,
           }}
@@ -52,9 +65,20 @@ export default function Hero() {
         >
           <Pointer name="Andrea" />
         </motion.div>
-        <div className="absolute right-80 -top-4 hidden lg:block">
+        <motion.div
+          animate={{
+            x: ["0%", "-200%", "400%", "600%", "0%"],
+            y: ["0%", "700%", "800%", "500%", "0%"],
+          }}
+          transition={{
+            duration: 8,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          className="absolute right-80 -top-4 hidden lg:block"
+        >
           <Pointer name="Bryan" color="red" />
-        </div>
+        </motion.div>
         <div className="flex justify-center">
           <div
             className="inline-flex py-1 px-3 bg-gradient-to-r from-purple-400 to-pink-400
