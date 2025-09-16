@@ -1,23 +1,57 @@
+"use client";
 import Button from "@/components/Button";
 import Pointer from "@/components/Pointer";
 import designExample1Image from "@/public/images/design-example-1.png";
 import designExample2Image from "@/public/images/design-example-2.png";
+import { motion, useAnimate } from "motion/react";
 
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Hero() {
+  const [leftDesignscope, leftDesignanimate] = useAnimate();
+  const [leftPointerScope, leftPointerAnimate] = useAnimate();
+
+  // useEffect(() => {
+  //   leftDesignanimate([
+  //     [leftDesignscope.current, { opacity: [0, 1] }, { duration: 0.5 }],
+  //   ]);
+  // }, [leftDesignscope, leftDesignanimate]);
   return (
     <section className="py-24 overflow-x-clip">
       <div className="container relative">
-        <div className="absolute -left-30 top-14 hidden lg:block">
+        <motion.div
+          ref={leftDesignscope}
+          initial={{ opacity: 0, y: 100, x: -100 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="absolute -left-17 top-14 hidden lg:block"
+        >
           <Image src={designExample1Image} alt="design Example1" height={400} />
-        </div>
-        <div className="absolute -right-40 top-2 hidden lg:block">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          className="absolute -right-40 top-2 hidden lg:block"
+        >
           <Image src={designExample2Image} alt="design Example2" height={400} />
-        </div>
-        <div className="absolute left-56 top-96 hidden lg:block">
+        </motion.div>
+        <motion.div
+          ref={leftPointerScope}
+          animate={{
+            x: ["0%", "-200%", "400%", "600%", "0%"],
+            y: ["0%", "-800%", "-400%", "-300%", "0%"],
+          }}
+          transition={{
+            duration: 8,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          className="absolute left-56 top-96 hidden lg:block"
+        >
           <Pointer name="Andrea" />
-        </div>
+        </motion.div>
         <div className="absolute right-80 -top-4 hidden lg:block">
           <Pointer name="Bryan" color="red" />
         </div>
