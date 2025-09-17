@@ -1,7 +1,7 @@
 "use client";
 import Tag from "@/components/Tag";
 import clsx from "clsx";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 const text = `You're racing to create exceptional work, but traditional design tools slow you down with unnecessary complexity and steep learning curves.`;
