@@ -2,7 +2,7 @@
 import Tag from "@/components/Tag";
 import clsx from "clsx";
 import { Plus } from "lucide-react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 const faqs = [
@@ -56,16 +56,23 @@ export default function Faqs() {
                 <h3 className="font-medium">{faq.question}</h3>
                 <Plus
                   className={clsx(
-                    "text-lime-400 shrink-0",
+                    "text-lime-400 shrink-0 transition-transform duration-300",
                     selectedIndex === faqindex && "rotate-45"
                   )}
                 />
               </div>
-              <div
-                className={clsx("mt-6", selectedIndex !== faqindex && "hidden")}
-              >
-                <p className="text-white/50">{faq.answer}</p>
-              </div>
+              <AnimatePresence initial={false}>
+                {selectedIndex === faqindex && (
+                  <motion.div
+                    initial={{ height: 0, marginTop: 0, opacity: 0 }}
+                    animate={{ height: "auto", marginTop: 24, opacity: 1 }}
+                    exit={{ height: 0, marginTop: 0, opacity: 0 }}
+                    className={clsx(" overflow-clip")}
+                  >
+                    <p className="text-white/50">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
