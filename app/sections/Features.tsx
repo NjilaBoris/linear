@@ -87,14 +87,20 @@ export default function Features() {
             </div>
           </FeatureCard>
           <FeatureCard
-            className="md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto"
+            className="md:col-span-2 md:col-start-2 lg:col-span-1 group lg:col-start-auto"
             title="Keyboard Quick Actions"
             description="Powerful commands to help you create designs more quickly"
           >
             <div className="aspect-video flex items-center justify-center gap-4">
-              <Key className="w-28">shift</Key>
-              <Key>alt</Key>
-              <Key>C</Key>
+              <Key className="w-28 outline-2 outline-transparent  outline-offset-4 group-hover:outline-lime-400 transition-all duration-500 group-hover:translate-y-1">
+                shift
+              </Key>
+              <Key className="outline-2 outline-transparent  outline-offset-4 group-hover:outline-lime-400 transition-all duration-500 group-hover:translate-y-1 delay-150">
+                alt
+              </Key>
+              <Key className="outline-2 outline-transparent  outline-offset-4 group-hover:outline-lime-400 transition-all duration-600 group-hover:translate-y-1 delay-300">
+                C
+              </Key>
             </div>
           </FeatureCard>
         </div>
@@ -102,12 +108,14 @@ export default function Features() {
           {features.map((feature) => (
             <div
               key={feature}
-              className="bg-neutral-900 border-white/10 md:px-5 md:py-2 inline-flex px-3 py-1.5 gap-3 items-center rounded-2xl"
+              className="bg-neutral-900 group hover:scale-105 transition-transform duration-500 border-white/10 md:px-5 md:py-2 inline-flex px-3 py-1.5 gap-3 items-center rounded-2xl"
             >
-              <span className="bg-lime-400 text-xl text-neutral-950 size-5 inline-flex items-center justify-center rounded-full">
+              <span className="bg-lime-400 group-hover:rotate-45 transition-transform duration-500 text-xl text-neutral-950 size-5 inline-flex items-center justify-center rounded-full">
                 &#10038;
               </span>
-              <span className="font-medium md:text-lg">{feature}</span>
+              <span className="font-medium md:text-lg will-change-transform">
+                {feature}
+              </span>
             </div>
           ))}
         </div>
