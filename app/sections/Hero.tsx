@@ -10,14 +10,6 @@ import Image from "next/image";
 import TextReveal from "@/components/TextReveal";
 
 export default function Hero() {
-  // const [leftDesignscope, leftDesignanimate] = useAnimate();
-  // const [leftPointerScope, leftPointerAnimate] = useAnimate();
-
-  // useEffect(() => {
-  //   leftDesignanimate([
-  //     [leftDesignscope.current, { opacity: [0, 1] }, { duration: 0.5 }],
-  //   ]);
-  // }, [leftDesignscope, leftDesignanimate]);
   return (
     <section
       className="py-24 overflow-x-clip"
