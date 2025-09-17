@@ -1,6 +1,9 @@
+"use client";
 import Tag from "@/components/Tag";
 import clsx from "clsx";
 import { Plus } from "lucide-react";
+import { motion } from "motion/react";
+import { useState } from "react";
 
 const faqs = [
   {
@@ -31,7 +34,7 @@ const faqs = [
 ];
 
 export default function Faqs() {
-  const selectedIndex = 0;
+  const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <section className="py-24 px-5">
       <div className="container">
@@ -47,6 +50,7 @@ export default function Faqs() {
             <div
               key={faq.question}
               className="bg-neutral-900 rounded-2xl border border-white/10 p-6"
+              onClick={() => setSelectedIndex(faqindex)}
             >
               <div className="flex items-center justify-between">
                 <h3 className="font-medium">{faq.question}</h3>
