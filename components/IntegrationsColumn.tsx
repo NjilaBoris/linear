@@ -8,11 +8,13 @@ import { motion } from "motion/react";
 const IntegrationsColumn = (props: {
   integrations: IntegrationsType;
   className?: string;
+  reverse?: boolean;
 }) => {
-  const { integrations, className } = props;
+  const { integrations, className, reverse } = props;
   return (
     <motion.div
-      animate={{ y: "-50%" }}
+      initial={{ y: reverse ? "-50%" : 0 }}
+      animate={{ y: reverse ? 0 : "-50%" }}
       transition={{
         duration: 15,
         repeat: Infinity,
